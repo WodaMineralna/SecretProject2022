@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Sanchez&display=swap');
+
+:root {
+    font-family: 'Sanchez', serif;
+    font-size: var(--rem-val);
+    color: var(--color-four);
+
+    --rem-val: 16px;
+    --navbar-height: 3.25rem;
+    --footer-height: 2rem;
+    --navL-width: 3rem;
+    --color-one: #4ABDAC;
+    --color-two: #FC4A1A;
+    --color-three: #F7B733;
+    --color-four: #DFDCE3;
+    --color-five: #031424;
+}
+
+html {
+    height: calc(100% - var(--navbar-height) - var(--footer-height));
+    margin-top: var(--navbar-height);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    background-color: var(--color-one);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+
+    background-image: linear-gradient( 115deg, #DFDCE3aa, #F7B733aa), url(https://images.wagwalkingweb.com/media/articles/care/hair-follicle-diseases-and-disorders/hair-follicle-diseases-and-disorders.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-height);
+
+    background-color: var(--color-five);
+}
+
+.nav-ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+}
+
+.nav-li {
+    width: 150px;
+}
+
+.nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100%;
+    width: 100%;
+}
+
+.nav-link:hover:not(.usersBox-li a) {
+    background-color: var(--color-one);
+    color: var(--color-five);
+}
+
+a {
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--color-four);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.form-content {
+    /* relative na rodzica? */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -100%);
+
+    width: 45%;
+    height: 350px;
+
+    background-color: var(--color-four);
+    opacity: .85;
+    border: 2px solid var(--color-five);
+    box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+}
+
+.form-content > form {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-input {
+    width: 50%;
+    height: 2.5rem;
+    margin-bottom: 25px;
+    padding: 5px 15px 5px 15px;
+
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.form-content form > button[type="submit"] {
+    height: 2rem;
+    width: 15%;
+
+    font-weight: 700;
+}
+
+.form-header {
+    font-size: 2rem;
+    margin: 50px 0 0 0;
+    letter-spacing: 5px;
+    color: var(--color-five);
+}
+
+.error-message {
+    position: absolute;
+    top: 0;
+
+    margin: 5px 0 0 0;
+    font-size: 2rem;
+    color: var(--color-two);
+    background-color: black;
+}
+
+.error-none {
+    color: green !important;
+}
+
+.document-content {
+    background: rgb(14,73,112);
+    background: linear-gradient(125deg, rgba(14,73,112,1) 0%, rgba(8,94,129,1) 39%, rgb(26, 124, 167) 80%, rgb(20, 107, 122) 100%);
+    opacity: .85;
+}
+
+.navbar-left {
+    position: fixed;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: var(--navL-width);
+    height: calc(100% - calc(var(--navbar-height) + var(--footer-height)));
+    background-color: var(--color-four);
+    box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+    z-index: 1;
+}
+
+.navL-itemBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.navL-svg {
+    margin: 15px 5px 15px 5px;
+}
+
+/* probowalem z align-self, nie dzialalo, moze dlatego ze jest po polnocy, nie wiem (sprobuj sie za to zabrac moze kiedys xdd) */
+.navL-itemBox:last-of-type {
+    position: absolute;
+    bottom: 0;
+}
+
+.usersBox {
+    display: none;
+    position: relative;
+    left: var(--navL-width);
+
+    width: 300px;
+    height: 100px;
+    background-color: var(--color-four);
+    border-left: 1px solid var(--color-five);
+}
+
+.usersBox-ul {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.usersBox-li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 50%;
+}
+
+.usersBox-li a {
+    color: var(--color-five);
+}
+
+/* zajumane z innego, wlasnego, niedokonczonego projektu */
+.underlined {
+    position: relative;
+}
+
+.underlined::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-five);
+    
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 200ms ease-in;
+}
+
+.nav-link:hover .underlined::after, .itemsList-li:hover .underlined::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+/* zajumane z innego, wlasnego, niedokonczonego projektu */
+
+.users-list {
+    position: relative;
+    top: 0;
+
+    margin: auto;
+    width: 750px;
+    height: 75%;
+    
+    box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+    background-color: var(--color-four);
+}
+
+.users-list > h2, .file-rep > h2 {
+    margin-bottom: 0;
+    font-size: 3.5rem;
+    color: var(--color-five);
+}
+
+.itemsList-container {
+    margin: 40px 0;
+    height: 100%;
+}
+
+.itemsList-ul {
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.itemsList-li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    
+    border-top: 1px solid var(--color-five);
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--color-five);
+}
+
+.itemsList-li:first-child {
+    border-top: none;
+}
+
+.userID {
+    margin-right: 75px;
+    padding: 5px;
+    background-color: var(--color-one);
+}
+
+.userID:not(:last-child) {
+    position: relative;
+    left: 22.5px;
+}
+
+.userID:last-child {
+    background-color: var(--color-two);
+}
+
+.itemList-btn {
+    position: absolute;
+    right: 75px;
+    color: green;
+}
+
+.delete-btn {
+    color: red !important;
+}
+
+.file-rep {
+    position: relative;
+    top: 0;
+
+    margin: auto;
+    width: 1250px;
+    height: 85%;
+    
+    box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+    background-color: var(--color-four);
+}
+
+.file-rep > h2 {
+    font-size: 2.75rem;
+}
+
+.form-file-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    padding: 5px;
+
+    height: 100px;
+    background-color: var(--color-five);
+    opacity: .75;
+}
+
+.form-file-input > button[type="submit"] {
+    font-size: .85rem;
+    font-weight: bold;
+}
+
+.files-table {
+    background-color: #031424;
+}
+
+.files-table th {
+    color: var(--color-two);
+}
+
+.files-table th, td {
+    padding: 5px;
+}
+
+.file-del {
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: green;
+}
+
+.sliding-text {
+    margin: 0 0 1.5rem 0;
+    color: var(--color-three);
+
+    font-style: italic;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black,
+        1px 2px 1px black,
+        1px 3px 1px black,
+        1px 4px 1px black,
+        1px 5px 1px black,
+        1px 6px 1px black,
+        1px 7px 1px black,
+        1px 8px 1px black,
+        1px 9px 1px black,
+        1px 10px 1px black;
+}
+
+/* VV ZRÓB TO WSZYSTKO W JS (DA SIE, NAPEWNO, TERAZ TO NA SZYBKO ZROBIŁEM DO SCREENA XD) VV */
+.sliding-text:first-of-type {
+    font-size: 8rem;
+    margin-top: 5rem;
+}
+
+.sliding-text:not(:first-of-type):not(:last-of-type) {
+    font-size: 5rem;
+    padding-left: 5rem;
+}
+
+.sliding-text:last-of-type {
+    font-size: 2rem;
+    padding-left: 9rem;
+}
+/* ^^ ZRÓB TO WSZYSTKO W JS (DA SIE, NAPEWNO, TERAZ TO NA SZYBKO ZROBIŁEM DO SCREENA XD) ^^ */
+
+footer {
+    display: flex;
+    align-items: center;
+    
+    position: fixed;    
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--footer-height);
+    
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.35);
+    background-color: var(--color-five);
+}
+
+footer > p {
+    font-size: 0.8rem;
+    opacity: 0.65;
+    padding-left: 15px;
+    padding-right: 5px;
+}
